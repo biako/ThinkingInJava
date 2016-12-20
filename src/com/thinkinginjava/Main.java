@@ -14,7 +14,7 @@ public class Main {
         a.method1("Value from Main");*/
         InheritanceInitialization.initialize();
         UpDownCastingTest.run();
-        UpDownCastingTest.run();
+
 
     }
 }
