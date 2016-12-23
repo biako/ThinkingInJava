@@ -1,6 +1,7 @@
 package com.thinkinginjava;
 
-import java.util.Scanner;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class Main {
 
@@ -12,8 +13,11 @@ public class Main {
         HelloWorld.method2();*/
         /*HelloWorld2 a = new HelloWorld2();
         a.method1("Value from Main");*/
-        InheritanceInitialization.initialize();
-        UpDownCastingTest.run();
+
+        //InheritanceInitialization.initialize();
+        //UpDownCastingTest.run();
+
+
 
 
     }
