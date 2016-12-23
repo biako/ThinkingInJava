@@ -13,9 +13,7 @@ public class Main {
 
         //InheritanceInitialization.initialize();
         //UpDownCastingTest.run();
-        int i = 0;
-        while (++i !=10 ) {
-            System.out.println(i);
-        }
+        LoopTest.test();
+
     }
 }
