@@ -1,8 +1,5 @@
 package com.thinkinginjava;
 
-import java.lang.reflect.Array;
-import java.util.*;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -16,9 +13,9 @@ public class Main {
 
         //InheritanceInitialization.initialize();
         //UpDownCastingTest.run();
-
-
-
-
+        int i = 0;
+        while (++i !=10 ) {
+            System.out.println(i);
+        }
     }
 }
