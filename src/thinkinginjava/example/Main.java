@@ -1,4 +1,5 @@
 package thinkinginjava.example;
+import designpattern.iterator.*;
 
 public class Main {
 
@@ -15,6 +16,8 @@ public class Main {
         //UpDownCastingTest.run();
         //LoopTest.test();
         //new Receipt().printReceipt();
+        designpattern.iterator.Main.test();
+
 
 
     }

@@ -2,7 +2,7 @@ package thinkinginjava.example;
 
 /**
  * Created by Xiaolong on 12/18/2016.
- * Based on "Thinking in Java" p272-273 example.
+ * Based on "Thinking in Java" p272-273 thinkinginjava.
  */
 
 class BaseClass {

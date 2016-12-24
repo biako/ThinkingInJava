@@ -47,7 +47,7 @@ public class StringTest {
             // boolean find() is an iterator, returning false if cannot find next match
             while (m.find()) {
                 /*public String group( ) returns group 0 (the entire match) from
-                 the previous match operation (find( ), for example).
+                 the previous match operation (find( ), for thinkinginjava).
 
                 public int start(int group) returns the start index of
                  the group found in the previous match operation.
@@ -229,7 +229,7 @@ public class StringTest {
 }
 
 /**
-* A example class to demonstrate Formatter (System.out.Formatter and String.Formatter).
+* A thinkinginjava class to demonstrate Formatter (System.out.Formatter and String.Formatter).
 *
 * To directly print as System.out:
 * new System.out.Formatter (%[argument_index$][flags][width][.precision]conversion)
