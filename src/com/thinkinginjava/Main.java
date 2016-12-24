@@ -13,7 +13,8 @@ public class Main {
 
         //InheritanceInitialization.initialize();
         //UpDownCastingTest.run();
-        LoopTest.test();
+        //LoopTest.test();
+        StringTest.regexMatcher();
 
     }
 }
