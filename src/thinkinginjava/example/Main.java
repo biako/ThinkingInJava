@@ -10,13 +10,15 @@ public class Main {
         HelloWorld.method2("abc", "def", "ghi", "jkl");
         HelloWorld.method2();*/
         /*HelloWorld2 a = new HelloWorld2();
-        a.method1("Value from Main");*/
+        a.method1("Value from Main2");*/
 
         //InheritanceInitialization.initialize();
         //UpDownCastingTest.run();
         //LoopTest.test();
         //new Receipt().printReceipt();
-        designpattern.iterator.Main.test();
+        //designpattern.iterator.Main2.test();
+        designpattern.adapter1.Main.test();
+        designpattern.adpater2.Main2.test();
 
 
 

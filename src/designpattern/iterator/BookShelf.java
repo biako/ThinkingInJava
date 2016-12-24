@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by Xiaolong on 12/24/2016.
  */
 public class BookShelf implements Aggregate {
-    private ArrayList<Book> booklist = new ArrayList<>();
+    private ArrayList<Book> booklist;
 
     public BookShelf() {
         super();
