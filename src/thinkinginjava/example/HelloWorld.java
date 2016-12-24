@@ -1,4 +1,4 @@
-package com.thinkinginjava;
+package thinkinginjava.example;
 
 import org.jetbrains.annotations.NotNull;
 

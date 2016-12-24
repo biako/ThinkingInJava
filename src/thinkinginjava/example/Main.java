@@ -1,4 +1,4 @@
-package com.thinkinginjava;
+package thinkinginjava.example;
 
 public class Main {
 

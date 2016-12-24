@@ -1,4 +1,4 @@
-package com.thinkinginjava;
+package thinkinginjava.example;
 
 import java.util.Arrays;
 import java.util.Formatter;

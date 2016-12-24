@@ -1,4 +1,4 @@
-package com.thinkinginjava;
+package thinkinginjava.example;
 
 import java.util.ArrayList;
 import java.util.Collection;
