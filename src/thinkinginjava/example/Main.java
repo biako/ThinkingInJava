@@ -1,5 +1,4 @@
 package thinkinginjava.example;
-import designpattern.iterator.*;
 
 public class Main {
 
@@ -10,15 +9,15 @@ public class Main {
         HelloWorld.method2("abc", "def", "ghi", "jkl");
         HelloWorld.method2();*/
         /*HelloWorld2 a = new HelloWorld2();
-        a.method1("Value from Main2");*/
+        a.method1("Value from Main");*/
 
         //InheritanceInitialization.initialize();
         //UpDownCastingTest.run();
         //LoopTest.test();
         //new Receipt().printReceipt();
-        //designpattern.iterator.Main2.test();
+        //designpattern.iterator.Main.test();
         designpattern.adapter1.Main.test();
-        designpattern.adpater2.Main2.test();
+        designpattern.adpater2.Main.test();
 
 
 

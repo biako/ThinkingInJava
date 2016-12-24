@@ -2,6 +2,9 @@ package designpattern.adpater2;
 
 /**
  * Created by Xiaolong on 12/25/2016.
+ *
+ * The adapter implements the interface and include a member from the adaptee class.
+ *
  */
 public class PrintAdapter2 implements Print2 {
 

@@ -5,8 +5,12 @@ package designpattern.adapter1;
  */
 public class Main {
     public static void test (){
-        new PrintAdapter("abc").printMethod1();
-        new PrintAdapter("abc").printMethod2();
+        // Up-cast to interface Print from class PrintAdapter
+        // to emphasize only use the methods under the interface:
+        Print printinterface = new PrintAdapter("abc");
+        printinterface.printMethod1();
+        printinterface.printMethod2();
+
     }
 }
 
