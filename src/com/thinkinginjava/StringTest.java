@@ -13,7 +13,7 @@ public class StringTest {
     public static void regexMatcher() {
         String text = "abcabcabcdefabc";
         String[] regex = new String[]{"abc+", "(abc)+", "(abc){2,}"};
-        StringTest.regexMatcher(text, regex);
+        regexMatcher(text, regex);
     }
 
 
@@ -134,7 +134,7 @@ public class StringTest {
 
 
     public static void regexMatcherSplit() {
-        String input =
+        final String input =
                 "This!!unusual use!!of exclamation!!points";
 
         System.out.println(Arrays.toString(
@@ -144,16 +144,83 @@ public class StringTest {
         System.out.println(Arrays.toString(
                 Pattern.compile("!!").split(input, 3)));
 
-        // Can call Spring.split(String regex, int limit)
+        // Can call Spring.split(String regex, int limit), which is simpler.
         System.out.println(Arrays.toString(
-                input.split("!!"))
-        );
+                input.split("!!")));
 
         // Only do the first three:
         System.out.println(Arrays.toString(
-                input.split("!!",3)));
+                input.split("!!", 3)));
+    }
 
+    public static void regexMatcherReplace() {
+        String s = "/*!Here’s a block of text to use as input to the regular expression matcher.\n Note that we’ll first extract the block of text by looking for the special delimiters,\n then process the extracted block.!*/";
+        // Match the specially commented block of text above:
+
+        /*
+        mInput is created to match all the text (notice the grouping parentheses) between
+        Then, more than two spaces are reduced to a single space, and any space at the beginning
+        of each line is removed (in order to do this on all lines and not just the beginning of
+        the input, multiline mode must be enabled). These two replacements are performed with
+        the equivalent (but more convenient, in this case) replaceAll( ) that’s part of String.
+        Note that since each replacement is only used once in the program, there’s no extra
+        cost to doing it this way rather than precompiling it as a Pattern.
+        */
+        System.out.println(s);
+        Matcher mInput =
+                Pattern.compile("/\\*!(.*)!\\*/", Pattern.DOTALL)
+                        .matcher(s);
+        if (mInput.find())
+            s = mInput.group(1); // Captured by parentheses (.*)
+        // Use String's replaceAll() to replace two or more spaces with a single space:
+        s = s.replaceAll(" {2,}", " ");
+        // Replace one or more spaces at the beginning of each
+        // line with no spaces. Must enable MULTILINE mode:
+        s = s.replaceAll("(?m)^ +", "");
+        System.out.println(s);
+
+        // replaceFirst( ) only performs the first replacement that it finds.
+        // Use String's replaceFirst() to replace first vowel:
+        s = s.replaceFirst("[aeiou]", "(VOWEL1)");
+
+        /*
+        In addition, the replacement strings in replaceFirst( ) and replaceAll( )
+        are just literals, so if you want to perform some processing on each
+        replacement, they don’t help. In that case, you need to use
+        appendReplacement( ), which allows you to write any amount of
+        code in the process of performing the replacement.
+
+        A group( ) is selected and processed—in this situation, setting the vowel
+        found by the regular expression to uppercase—as the resulting sbuf is being built.
+
+        Normally, you step through and perform all the replacements and
+        then call appendTail( ),
+        but if you want to simulate replaceFirst( ) (or "replace n"),
+        you just do the replacement one time and then call appendTail( )
+        to put the rest into sbuf.
+        */
+        StringBuffer sbuf = new StringBuffer();
+        Matcher m = Pattern.compile("[aeiou]").matcher(s);
+        // Process the find information as you perform the replacements:
+        while(m.find())
+            m.appendReplacement(sbuf, m.group().toUpperCase());
+        // Put in the remainder of the text:
+        m.appendTail(sbuf);
+        System.out.println(sbuf);
 
     }
+
+    //An existing Matcher object can be applied to a new character sequence using the reset( ) methods:
+    public static void regexMatcherReset() {
+        Matcher m = Pattern.compile("[frb][aiu][gx]")
+                .matcher("fix the rug with bags");
+        while(m.find())
+            System.out.print(m.group() + " ");
+        System.out.println();
+        m.reset("fix the rig with rags");
+        while(m.find())
+            System.out.print(m.group() + " ");
+    }
+
 
 }
