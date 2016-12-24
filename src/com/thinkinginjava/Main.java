@@ -14,7 +14,7 @@ public class Main {
         //InheritanceInitialization.initialize();
         //UpDownCastingTest.run();
         //LoopTest.test();
-        new Receipt().printReceipt();
+        //new Receipt().printReceipt();
 
 
     }

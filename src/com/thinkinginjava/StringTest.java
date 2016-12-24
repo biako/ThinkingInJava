@@ -6,12 +6,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by Xiaolong on 12/24/2016. String test.
+ * Created by Xiaolong on 12/24/2016.
+ *
+ * Example for String Chapter.
+ *
  */
 public class StringTest {
 
 
-    // Overload method with predefined arguments for for testing.
+    /** Overload method with predefined arguments for for testing regexMatcher below.*/
     public static void regexMatcher() {
         String text = "abcabcabcdefabc";
         String[] regex = new String[]{"abc+", "(abc)+", "(abc){2,}"};
@@ -19,8 +22,8 @@ public class StringTest {
     }
 
 
-    /*
-    To demonstrate the basics of matcher.find() (acting as an iterator), matcher.roup() (returning the match),
+    /**
+    To demonstrate the basics of matcher.find() (acting as an iterator), matcher.group() (returning the match),
     matcher.start() and matcher.end() (returning the start index and the end index.
     */
     public static void regexMatcher(String text, String... regex) {
@@ -51,7 +54,6 @@ public class StringTest {
 
                 public int end(int group) returns the index of the
                 last character, plus one, of the group found in the previous match operation.*/
-
                 System.out.println("Match \"" + m.group() + "\" at positions " +
                         m.start() + "-" + (m.end() - 1));
 
@@ -60,11 +62,10 @@ public class StringTest {
         }
 
     }
-    /*
+    /**
     To demonstrate different groups in a regex.
 
     REGEX is (?m)(\S+)\s+((\S+)\s+(\S+))$
-
 
     You can see that the regular expression pattern has a number of parenthesized groups,
     consisting of any number of non-whitespace characters (‘\S+’) followed by any number of
@@ -76,7 +77,6 @@ public class StringTest {
     to pay attention to newlines within the input. This is accomplished with the ‘(?m)’
     pattern flag at the beginning of the sequence (pattern flags will be shown shortly).
     */
-
     public static void regexMatcherGroup() {
         final String POEM =
                 "Twas brillig, and the slithy toves\n" +
@@ -108,11 +108,10 @@ public class StringTest {
 
     }
 
-    /*
-    Demonstrate the flags in Pattern.compile(String regex, int flags)
+    /**
+    To demonstrate the flags in Pattern.compile(String regex, int flags)
     You can combine the effect flags through an "OR" (‘|’) operation,
     like "Pattern.CASE_INSENSITIVE | Pattern.MULTILINE"
-
 
     In multiline mode, the expressions ‘^’ and ‘$’ match the beginning and ending of a line,
     respectively.’^’ also matches the beginning of the input string, and ‘$’ also matches the
@@ -134,7 +133,9 @@ public class StringTest {
             System.out.println(m.group());
     }
 
-
+    /**
+     To demonstrate Pattern.compile(String regex).split(CharSequence input, int limit)
+     */
     public static void regexMatcherSplit() {
         final String input =
                 "This!!unusual use!!of exclamation!!points";
@@ -155,19 +156,22 @@ public class StringTest {
                 input.split("!!", 3)));
     }
 
+    /**
+     To demonstrate the replaceAll() and replastFirst().
+
+     mInput is created to match all the text (notice the grouping parentheses) between
+     Then, more than two spaces are reduced to a single space, and any space at the beginning
+     of each line is removed (in order to do this on all lines and not just the beginning of
+     the input, multiline mode must be enabled). These two replacements are performed with
+     the equivalent (but more convenient, in this case) replaceAll() that’s part of String.
+     Note that since each replacement is only used once in the program, there’s no extra
+     cost to doing it this way rather than precompiling it as a Pattern.
+     */
     public static void regexMatcherReplace() {
         String s = "/*!Here’s a block of text to use as input to the regular expression matcher.\n Note that we’ll first extract the block of text by looking for the special delimiters,\n then process the extracted block.!*/";
         // Match the specially commented block of text above:
 
-        /*
-        mInput is created to match all the text (notice the grouping parentheses) between
-        Then, more than two spaces are reduced to a single space, and any space at the beginning
-        of each line is removed (in order to do this on all lines and not just the beginning of
-        the input, multiline mode must be enabled). These two replacements are performed with
-        the equivalent (but more convenient, in this case) replaceAll( ) that’s part of String.
-        Note that since each replacement is only used once in the program, there’s no extra
-        cost to doing it this way rather than precompiling it as a Pattern.
-        */
+
         System.out.println(s);
         Matcher mInput =
                 Pattern.compile("/\\*!(.*)!\\*/", Pattern.DOTALL)
@@ -186,33 +190,32 @@ public class StringTest {
         s = s.replaceFirst("[aeiou]", "(VOWEL1)");
 
         /*
-        In addition, the replacement strings in replaceFirst( ) and replaceAll( )
+        The replacement strings in replaceFirst( ) and replaceAll( )
         are just literals, so if you want to perform some processing on each
         replacement, they don’t help. In that case, you need to use
         appendReplacement( ), which allows you to write any amount of
         code in the process of performing the replacement.
-
-        A group( ) is selected and processed—in this situation, setting the vowel
-        found by the regular expression to uppercase—as the resulting sbuf is being built.
-
-        Normally, you step through and perform all the replacements and
-        then call appendTail( ),
-        but if you want to simulate replaceFirst( ) (or "replace n"),
-        you just do the replacement one time and then call appendTail( )
-        to put the rest into sbuf.
         */
         StringBuffer sbuf = new StringBuffer();
         Matcher m = Pattern.compile("[aeiou]").matcher(s);
         // Process the find information as you perform the replacements:
+        // A group( ) is selected and processed—in this situation, setting the vowel
+        // found by the regular expression to uppercase—as the resulting sbuf is being built.
         while (m.find())
             m.appendReplacement(sbuf, m.group().toUpperCase());
         // Put in the remainder of the text:
+        // Normally, you step through and perform all the replacements and
+        // then call appendTail( ),
+        //         but if you want to simulate replaceFirst( ) (or "replace n"),
+        // you just do the replacement one time and then call appendTail( )
+        // to put the rest into sbuf.
         m.appendTail(sbuf);
         System.out.println(sbuf);
 
     }
 
-    //An existing Matcher object can be applied to a new character sequence using the reset( ) methods:
+    /** To demonstrate an existing Matcher object can be applied to a new character
+     *  sequence using the reset( ) methods:*/
     public static void regexMatcherReset() {
         Matcher m = Pattern.compile("[frb][aiu][gx]")
                 .matcher("fix the rug with bags");
@@ -227,38 +230,37 @@ public class StringTest {
 
 }
 
+/**
+* A example class to demonstrate Formatter (System.out.Formatter and String.Formatter).
+*
+* To directly print as System.out:
+* new System.out.Formatter (%[argument_index$][flags][width][.precision]conversion)
+*
+* To convert as a String:
+* String.format (%[argument_index$][flags][width][.precision]conversion)
+*
+*
+* flag: By default, the data is right justified,
+*       but this can be overridden by including a ‘-’ in the flags section.
+* width: the minimum size of a field
+* precision: the maximum size of a field
+*
+* conversion:
+*     %d: Integral (as decimal)
+      %c: Unicode character
+      %b: Boolean value
+      %s: String
+      %f: Floating point (as decimal)
+      %e: Floating point (in scientific notation)
+      %x: Integral (as hex)
+      %h: Hash code (as hex)
+      %%: Literal "%"*
+* */
 class Receipt {
     double total = 0;
     Formatter f = new Formatter(System.out);
 
-    /*
-    * To directly print as System.out:
-    * new System.out.Formatter (%[argument_index$][flags][width][.precision]conversion)
-    *
-    * To convert as a String:
-    * String.format (%[argument_index$][flags][width][.precision]conversion)
-    *
-    *
-    * flag: By default, the data is right justified,
-    *       but this can be overridden by including a ‘-’ in the flags section.
-    * width: the minimum size of a field
-    * precision: the maximum size of a field
-    *
-    * conversion:
-    *     %d: Integral (as decimal)
-          %c: Unicode character
-          %b: Boolean value
-          %s: String
-          %f: Floating point (as decimal)
-          %e: Floating point (in scientific notation)
-          %x: Integral (as hex)
-          %h: Hash code (as hex)
-          %%: Literal "%"
-    *
-    *
-    * */
-
-    private void printTitle() {
+       private void printTitle() {
         // The following is an equivalent.
         // System.out.print(String.format("%-15s %5s %10s\n", "Item", "Qty", "Price"));
         f.format("%-15s %5s %10s\n", "Item", "Qty", "Price");
