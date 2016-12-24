@@ -171,7 +171,6 @@ public class StringTest {
         String s = "/*!Here’s a block of text to use as input to the regular expression matcher.\n Note that we’ll first extract the block of text by looking for the special delimiters,\n then process the extracted block.!*/";
         // Match the specially commented block of text above:
 
-
         System.out.println(s);
         Matcher mInput =
                 Pattern.compile("/\\*!(.*)!\\*/", Pattern.DOTALL)
@@ -204,9 +203,8 @@ public class StringTest {
         while (m.find())
             m.appendReplacement(sbuf, m.group().toUpperCase());
         // Put in the remainder of the text:
-        // Normally, you step through and perform all the replacements and
-        // then call appendTail( ),
-        //         but if you want to simulate replaceFirst( ) (or "replace n"),
+        // Normally, you step through and perform all the replacements and then call appendTail( ),
+        // but if you want to simulate replaceFirst( ) (or "replace n"),
         // you just do the replacement one time and then call appendTail( )
         // to put the rest into sbuf.
         m.appendTail(sbuf);
@@ -240,12 +238,12 @@ public class StringTest {
 * String.format (%[argument_index$][flags][width][.precision]conversion)
 *
 *
-* flag: By default, the data is right justified,
+* [flag]: By default, the data is right justified,
 *       but this can be overridden by including a ‘-’ in the flags section.
-* width: the minimum size of a field
-* precision: the maximum size of a field
+* [width]: the minimum size of a field
+* [.precision]: the maximum size of a field
 *
-* conversion:
+* [conversion]:
 *     %d: Integral (as decimal)
       %c: Unicode character
       %b: Boolean value
