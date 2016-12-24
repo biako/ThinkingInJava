@@ -1,6 +1,7 @@
 package com.thinkinginjava;
 
 import java.util.Arrays;
+import java.util.Formatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -8,6 +9,7 @@ import java.util.regex.Pattern;
  * Created by Xiaolong on 12/24/2016. String test.
  */
 public class StringTest {
+
 
     // Overload method with predefined arguments for for testing.
     public static void regexMatcher() {
@@ -202,7 +204,7 @@ public class StringTest {
         StringBuffer sbuf = new StringBuffer();
         Matcher m = Pattern.compile("[aeiou]").matcher(s);
         // Process the find information as you perform the replacements:
-        while(m.find())
+        while (m.find())
             m.appendReplacement(sbuf, m.group().toUpperCase());
         // Put in the remainder of the text:
         m.appendTail(sbuf);
@@ -214,13 +216,72 @@ public class StringTest {
     public static void regexMatcherReset() {
         Matcher m = Pattern.compile("[frb][aiu][gx]")
                 .matcher("fix the rug with bags");
-        while(m.find())
+        while (m.find())
             System.out.print(m.group() + " ");
         System.out.println();
         m.reset("fix the rig with rags");
-        while(m.find())
+        while (m.find())
             System.out.print(m.group() + " ");
     }
 
 
+}
+
+class Receipt {
+    double total = 0;
+    Formatter f = new Formatter(System.out);
+
+    /*
+    * To directly print as System.out:
+    * new System.out.Formatter (%[argument_index$][flags][width][.precision]conversion)
+    *
+    * To convert as a String:
+    * String.format (%[argument_index$][flags][width][.precision]conversion)
+    *
+    *
+    * flag: By default, the data is right justified,
+    *       but this can be overridden by including a ‘-’ in the flags section.
+    * width: the minimum size of a field
+    * precision: the maximum size of a field
+    *
+    * conversion:
+    *     %d: Integral (as decimal)
+          %c: Unicode character
+          %b: Boolean value
+          %s: String
+          %f: Floating point (as decimal)
+          %e: Floating point (in scientific notation)
+          %x: Integral (as hex)
+          %h: Hash code (as hex)
+          %%: Literal "%"
+    *
+    *
+    * */
+
+    private void printTitle() {
+        // The following is an equivalent.
+        // System.out.print(String.format("%-15s %5s %10s\n", "Item", "Qty", "Price"));
+        f.format("%-15s %5s %10s\n", "Item", "Qty", "Price");
+        f.format("%-15s %5s %10s\n", "----", "---", "-----");
+    }
+
+    private void print(String name, int qty, double price) {
+        f.format("%-15.15s %5d %10.2f\n", name, qty, price);
+        total += price;
+    }
+
+    private void printTotal() {
+        f.format("%-15s %5s %10.2f\n", "Tax", "", total * 0.06);
+        f.format("%-15s %5s %10s\n", "", "", "-----");
+        f.format("%-15s %5s %10.2f\n", "Total", "",
+                total * 1.06);
+    }
+
+    public void printReceipt() {
+        printTitle();
+        print("Jack’s Magic Beans", 4, 4.25);
+        print("Princess Peas", 3, 5.1);
+        print("Three Bears Porridge", 1, 14.29);
+        printTotal();
+    }
 }
