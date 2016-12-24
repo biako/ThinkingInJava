@@ -14,7 +14,7 @@ public class Main {
         //InheritanceInitialization.initialize();
         //UpDownCastingTest.run();
         //LoopTest.test();
-        StringTest.regexMatcher();
+        StringTest.regexMatcherSplit();
 
     }
 }
