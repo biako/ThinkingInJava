@@ -2,6 +2,8 @@ package designpattern.templatemethod;
 
 /**
  * Created by Xiaolong on 12/25/2016.
+ *
+ * Detail method implementation realized by subclasses.
  */
 public abstract class AbstractMethod {
     public abstract void open ();
