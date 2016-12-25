@@ -39,6 +39,4 @@ public class Main extends Thread {
         Singleton obj3 = Singleton.getInstance();
         System.out.format("%s: obj3=%s\n",getName(), obj3);
     }
-
-
 }
