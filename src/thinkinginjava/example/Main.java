@@ -19,8 +19,9 @@ public class Main {
         //designpattern.adapter1.Main.test();
         //designpattern.adpater2.Main.test();
         //designpattern.templatemethod.Main.test();
-        designpattern.factorymethod.idcard.Main.test();
-
+        //designpattern.factorymethod.idcard.Main.test();
+        //designpattern.singleton.Main.test();
+        designpattern.singleton.Main.multiThreadTest();
 
 
     }
