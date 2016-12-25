@@ -16,8 +16,9 @@ public class Main {
         //LoopTest.test();
         //new Receipt().printReceipt();
         //designpattern.iterator.Main.test();
-        designpattern.adapter1.Main.test();
-        designpattern.adpater2.Main.test();
+        //designpattern.adapter1.Main.test();
+        //designpattern.adpater2.Main.test();
+        designpattern.templatemethod.Main.test();
 
 
 
