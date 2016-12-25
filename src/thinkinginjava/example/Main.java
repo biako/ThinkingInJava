@@ -18,7 +18,8 @@ public class Main {
         //designpattern.iterator.Main.test();
         //designpattern.adapter1.Main.test();
         //designpattern.adpater2.Main.test();
-        designpattern.templatemethod.Main.test();
+        //designpattern.templatemethod.Main.test();
+        designpattern.factorymethod.idcard.Main.test();
 
 
 
