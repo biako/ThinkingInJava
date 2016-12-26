@@ -1,5 +1,7 @@
 package thinkinginjava.typeinformation;
 
+import java.lang.reflect.Method;
+
 /**
  *
  * Thinking in Java p397-398
@@ -80,5 +82,6 @@ public class ToyTest {
         }
         printInfo(obj.getClass());
     }
+
 }
 
