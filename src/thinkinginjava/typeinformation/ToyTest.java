@@ -1,4 +1,4 @@
-package thinkinginjava.example.typeinformation;
+package thinkinginjava.typeinformation;
 
 /**
  *
@@ -54,7 +54,7 @@ public class ToyTest {
         Class c = null;
 
         try {
-            c = Class.forName("thinkinginjava.example.typeinformation.FancyToy");
+            c = Class.forName("FancyToy");
         } catch (ClassNotFoundException e) {
             System.out.println("Can’t find FancyToy");
             System.exit(1);

@@ -1,4 +1,4 @@
-package thinkinginjava.example;
+package thinkinginjava;
 
 /**
  * Created by Xiaolong on 12/18/2016.
