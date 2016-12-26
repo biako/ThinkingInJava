@@ -5,6 +5,16 @@ package thinkinginjava.typeinformation.reflection;
  *
  * Default argument: ShowMethods
  *
+ * To list all the methods in the class identified by the argument.
+ *
+ * Use Pattern.matcher to remove the extra class information in the format of "xxx.xxx.xxx."
+ *
+ * Regex is ("\\w+\\.")
+ * Note: \\. means .
+ * Note: . means any character
+ *
+ *
+ *
  */
 
 import java.lang.reflect.*;
@@ -35,6 +45,7 @@ public class ShowMethods {
                         p.matcher(method.toString()).replaceAll(""));
             for (Constructor ctor : ctors)
                 System.out.println(p.matcher(ctor.toString()).replaceAll(""));
+
 
 /*
             for (Method method : methods)
