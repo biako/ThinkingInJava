@@ -48,9 +48,6 @@ class MethodSelector implements InvocationHandler {
 }
 
 
-
-
-
 class SelectingMethods {
     public static void main(String[] args) {
         SomeMethods proxy= (SomeMethods) Proxy.newProxyInstance(
