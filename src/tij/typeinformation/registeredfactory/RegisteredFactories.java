@@ -8,7 +8,7 @@ import java.util.Random;
 /**
  * Created by Xiaolong on 12/26/2016.
  *
- * Thinking in Java p 414
+ * Thinking in Java p414
  *
  * In this example, the base class Part contains a List of factory
  * objects. Factories for types that should be produced by the

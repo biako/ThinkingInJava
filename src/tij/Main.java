@@ -23,6 +23,5 @@ public class Main {
         //dp.singleton.Main.test();
         dp.singleton.Main.multiThreadTest();
 
-
     }
 }

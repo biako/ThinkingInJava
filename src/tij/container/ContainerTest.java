@@ -1,4 +1,4 @@
-package tij;
+package tij.container;
 
 import java.util.ArrayList;
 import java.util.Collection;

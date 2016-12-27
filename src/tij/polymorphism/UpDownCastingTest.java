@@ -1,4 +1,4 @@
-package tij;
+package tij.polymorphism;
 
 /**
  * Created by Xiaolong on 12/18/2016.

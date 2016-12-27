@@ -1,4 +1,4 @@
-package tij;
+package tij.polymorphism;
 
 import org.jetbrains.annotations.NotNull;
 

@@ -3,6 +3,8 @@ package tij.typeinformation;
 
 /**
  * Created by Xiaolong on 12/26/2016.
+ *
+ * Thinking in Java p416
  * <p>
  * Class<?> Object.getClass()
  * <p>
