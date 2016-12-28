@@ -2,6 +2,9 @@ package tij.generics.tuple;
 
 /**
  * Created by Xiaolong on 12/28/2016.
+ *
+ * Thinking in Java p443
+ *
  */
 
 class Amphibian {
