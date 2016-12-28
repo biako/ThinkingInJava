@@ -11,10 +11,6 @@ class Amphibian {
     }
 }
 
-class Vehicle {
-}
-
-
 public class TupleTest {
     static TwoTuple<String, Integer> f() {
         // Autoboxing converts the int to Integer:
@@ -27,10 +23,8 @@ public class TupleTest {
     }
 
     public static void main(String[] args) {
-        TwoTuple<String, Integer> a = f();
-        ThreeTuple<Amphibian, String, Integer> b = g();
-        System.out.println(a);
-        System.out.println(b);
+        System.out.println(f());
+        System.out.println(g());
     }
 
 }
