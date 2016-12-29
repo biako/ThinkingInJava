@@ -11,8 +11,12 @@ package tij.generics.genericinterface;
  *
  * public <T> void method(T arg) means the method has type T argument.
  *
+ *
+ * Consider: <B> T next(B arg):
+ * return type is T (class type parameter);
+ * argument type is B (method type parameter).
+ *
  */
 public interface Generator<T> {
     T next();
-    // Consider <B> T next(B a); return type is T; argument type is B
 }
