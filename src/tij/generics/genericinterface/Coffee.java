@@ -2,11 +2,9 @@ package tij.generics.genericinterface;
 
 /**
  * Created by Xiaolong on 12/29/2016.
- * <p>
+ *
  * Pay attention to:
- * <p>
- * (1) private static long counter = 0;
- * <p>
+ *  (1) private static long counter = 0;
  * (2) private final long id - counter++;
  */
 public class Coffee {
