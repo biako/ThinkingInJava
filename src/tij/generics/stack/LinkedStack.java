@@ -1,14 +1,20 @@
 package tij.generics.stack;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 /**
  * Created by Xiaolong on 12/28/2016.
  * <p>
  * LinkedStack consists of Nodes.
  * <p>
  * Nodes has two fields: (1) the item of the type U; and (2) the link to the next Node
+ * <p>
+ * This example makes use of an end sentinel to determine when the stack is empty.
  */
 public class LinkedStack<T> {
-    private Node<T> top = new Node<>(); // The initial one is null. and of the type of T
+    //This example makes use of an end sentinel to determine when the stack is empty.
+    private Node<T> top = new Node<>(); // The initial one is null. and of the type of T.
 
     private static class Node<U> {
         U item; // This item of the type U
@@ -49,8 +55,8 @@ public class LinkedStack<T> {
 
     public static void main(String[] args) {
         LinkedStack<String> linkedStack = new LinkedStack<>();
-        for (int i=0; i<26; i++){
-            char ch = (char) (((int) 'A') +i);
+        for (int i = 0; i < 26; i++) {
+            char ch = (char) (((int) 'A') + i);
             linkedStack.push(String.valueOf(ch));
             System.out.format("push(%s)\n", ch);
         }

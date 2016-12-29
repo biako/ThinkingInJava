@@ -10,9 +10,8 @@ import java.util.Collections;
 public class ContainerTest {
 
     public static void test(){
-    ArrayList<Integer> collection1 = new ArrayList<>();
-    Collection<Integer> collection2 = new ArrayList<>();
-
+        ArrayList<Integer> collection1 = new ArrayList<>();
+        Collection<Integer> collection2 = new ArrayList<>();
         Collections.addAll(collection1, 1, 2, 3, 4,3,5);
         Collections.addAll(collection2, 1, 2);
         collection1.add(4);
