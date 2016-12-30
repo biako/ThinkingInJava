@@ -1,10 +1,5 @@
 package tij.generics.genericmethod;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 /**
  * Created by Xiaolong on 12/29/2016.
  *

@@ -18,5 +18,5 @@ package tij.generics.genericinterface;
  *
  */
 public interface Generator<T> {
-    T next();
+    T next() throws IllegalAccessException, InstantiationException;
 }
