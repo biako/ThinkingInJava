@@ -4,23 +4,21 @@ import java.util.Iterator;
 
 /**
  * Created by Xiaolong on 12/30/2016.
- *
+ * <p>
  * Thinking in Java p454
- *
+ * <p>
  * I. Constructors:
  * BasicGenerator is a generic generator which have two overloaded constructors:
- *
- *      (1) public BasicGenerator(Class<T> tClass)
- *      (2) public BasicGenerator(Class<T> tClass, int number)
- *
+ * <p>
+ * (1) public BasicGenerator(Class<T> tClass)
+ * (2) public BasicGenerator(Class<T> tClass, int number)
+ * <p>
  * II. Interfaces:
  * BasicGenerator implements Generator<T> and can return a new instance of type T by calling next().
- *
+ * <p>
  * BasicGenerator also implements Iterable<T>.
  * By using the overloaded constructor with an int argument, public BasicGenerator(Class<T> tClass, int number),
  * BasicGenerator can be used in foreach.
- *
- *
  */
 
 // Note: Cannot omit the type parameters of the interfaces implemented!
@@ -54,7 +52,7 @@ public class BasicGenerator<T> implements Generator<T>, Iterable<T> {
         throw new RuntimeException();
     }
 
-    // Note: The Iterator is NOT Iterator<T>!
+    // Note: The Iterator is NOT Iterator<T>?
     public class BGIterator implements Iterator<T> {
         private int count = size;
 
@@ -72,18 +70,17 @@ public class BasicGenerator<T> implements Generator<T>, Iterable<T> {
     }
 
     // The iterator() will only return the iterator object.
-    // Note: The Iterator is NOT Iterator<T>!
     @Override
-    public Iterator iterator() {
+    public Iterator<T> iterator() {
         return new BGIterator();
     }
 
     public static void main(String[] args) {
-        BasicGenerator<CoffeeType1> bg1 = new BasicGenerator<>(CoffeeType1.class);
+        //BasicGenerator<CoffeeType1> bg1 = new BasicGenerator<>(CoffeeType1.class);
         BasicGenerator<CoffeeType1> bg2 = new BasicGenerator<>(CoffeeType1.class, 10);
-        for (int i = 0; i < 5; i++) {
+        /*for (int i = 0; i < 5; i++) {
             System.out.println(bg1.next());
-        }
+        }*/
         for (CoffeeType1 c : bg2) {
             System.out.println(c);
         }
