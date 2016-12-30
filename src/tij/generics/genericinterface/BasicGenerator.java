@@ -76,11 +76,11 @@ public class BasicGenerator<T> implements Generator<T>, Iterable<T> {
     }
 
     public static void main(String[] args) {
-        //BasicGenerator<CoffeeType1> bg1 = new BasicGenerator<>(CoffeeType1.class);
+        BasicGenerator<CoffeeType1> bg1 = new BasicGenerator<>(CoffeeType1.class);
         BasicGenerator<CoffeeType1> bg2 = new BasicGenerator<>(CoffeeType1.class, 10);
-        /*for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.println(bg1.next());
-        }*/
+        }
         for (CoffeeType1 c : bg2) {
             System.out.println(c);
         }
