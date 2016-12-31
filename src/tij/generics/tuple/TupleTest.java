@@ -6,29 +6,24 @@ package tij.generics.tuple;
  * Thinking in Java p443
  *
  */
-class Vehicle {
-    @Override
-    public String toString() {
-        return this.getClass().getSimpleName();
-    }
-}
 
-class Amphibian {
-    @Override
-    public String toString() {
-        return this.getClass().getSimpleName();
-    }
-}
+
+
 
 public class TupleTest {
-    static TwoTuple<String, Integer> f() {
+    public static TwoTuple<String, Integer> f() {
         // Autoboxing converts the int to Integer:
         return new TwoTuple<>("hi", 47);
     }
 
-    static ThreeTuple<Amphibian, String, Integer> g() {
+    public static ThreeTuple<Amphibian, String, Integer> g() {
         return new ThreeTuple<>(
                 new Amphibian(), "hi", 47);
+    }
+
+    public static FourTuple<Vehicle, Amphibian,  String, Integer> h() {
+        return new FourTuple<>(
+                new Vehicle(), new Amphibian(), "hi", 47);
     }
 
     public static void main(String[] args) {

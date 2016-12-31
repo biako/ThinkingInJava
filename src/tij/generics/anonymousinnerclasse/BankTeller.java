@@ -10,6 +10,24 @@ import java.util.*;
  *
  * Thinking in Java p459-460
  *
+ * The below is the example using anonymous inner class without lambda:
+ *
+ * For private constructors, must use generator to return a new object.
+ *
+ *  class Teller {
+        private static long counter = 1;
+        private final long id = counter++;
+        private Teller() {}
+        public String toString() { return "Teller " + id; }
+
+        // A single Generator object. Not using lambda.
+        public static Generator<Teller> generator =
+            new Generator<Teller>() {
+            public Teller next() { return new Teller(); }
+        };
+    }
+ *
+ *
  */
 
 class Customer {
@@ -67,6 +85,7 @@ public class BankTeller {
         Queue<Customer> line = new LinkedList<>();
 
         // public static <T> Collection<T> fill(Collection<T> coll, Generator<T> gen, int n):
+        // This is a static method in class Generators.
         // Fill into Collection<T> n number of type T objects by calling T's generator.
 
         // 15 customers and 4 tellers in this examples.
