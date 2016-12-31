@@ -6,6 +6,12 @@ package tij.generics.tuple;
  * Thinking in Java p443
  *
  */
+class Vehicle {
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName();
+    }
+}
 
 class Amphibian {
     @Override
