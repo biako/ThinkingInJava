@@ -7,6 +7,13 @@ import java.util.*;
  *
  * Thinking in Java p488-489
  *
+ * There are many cases like the ones you see here where the compiler
+ * could care less whether you use a raw type or <?>. In those cases,
+ * <?> can be thought of as a decoration; and yet it is valuable because,
+ * in effect, it says, "I wrote this code with Java generics in mind,
+ * and I don’t mean here that I’m using a raw type, but that in this
+ * case the generic parameter can hold any type."
+ *
  */
 public class UnboundedWildcards1 {
     static List list1;
@@ -15,7 +22,7 @@ public class UnboundedWildcards1 {
     static void assign1(List list) {
         list1 = list;
         list2 = list;
-        // list3 = list; // Warning: unchecked conversion
+        list3 = list; // Warning: unchecked conversion
         // Found: List, Required: List<? extends Object>
     }
 
@@ -34,7 +41,7 @@ public class UnboundedWildcards1 {
     public static void main(String[] args) {
         assign1(new ArrayList());
         assign2(new ArrayList());
-        // assign3(new ArrayList()); // Warning:
+        assign3(new ArrayList()); // Warning:
         // Unchecked conversion. Found: ArrayList
         // Required: List<? extends Object>
         assign1(new ArrayList<String>());

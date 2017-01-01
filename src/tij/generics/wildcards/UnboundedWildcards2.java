@@ -5,12 +5,18 @@ package tij.generics.wildcards;
  *
  * Thinking in Java p489
  *
+ * When you are dealing with multiple generic parameters,
+ * it’s sometimes important to allow one parameter to be any type while
+ * establishing a particular type for the other parameter.
+ *
  */
 
 import java.util.*;
 
 public class UnboundedWildcards2 {
     static Map map1;
+    //when you have all unbounded wildcards, as seen in Map<?,?>,
+    // the compiler doesn't seem to distinguish it from a raw Map.
     static Map<?,?> map2;
     static Map<String,?> map3;
     static void assign1(Map map) { map1 = map; }
