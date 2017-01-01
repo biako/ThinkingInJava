@@ -5,6 +5,8 @@ package tij.generics.erasure;
  *
  * Thinking in Java p464-465
  *
+ * Example to illustrate the erasure in Java!
+ *
  */
 
 // Error: cannot find symbol: method f() if there is no <T extends HasF>:
