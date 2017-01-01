@@ -1,4 +1,4 @@
-# ThinkingInJava
+# Thinking in Java and Design Pattern
 ## Codes
 There are two folders under the src folder:
  
