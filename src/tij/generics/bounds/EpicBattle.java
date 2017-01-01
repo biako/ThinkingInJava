@@ -4,7 +4,9 @@ import java.util.*;
 /**
  * Created by Xiaolong on 1/1/2017.
  *
+ * Thinking in Java p.480-481
  *
+ * Example demonstrating bounds in generics.
  *
  */
 

@@ -6,6 +6,8 @@ import java.util.LinkedList;
 /**
  * Created by Xiaolong on 12/28/2016.
  * <p>
+ * Thinking in Java p444
+ *
  * LinkedStack consists of Nodes.
  * <p>
  * Nodes has two fields: (1) the item of the type U; and (2) the link to the next Node
