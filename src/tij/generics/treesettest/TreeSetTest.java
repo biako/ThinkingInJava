@@ -9,6 +9,9 @@ import java.util.TreeSet;
  *
  * Crazy Java Lecture p350.
  *
+ * Topic: wildcard for generics; TreeSet's constructor with Comparator; Lambda expression
+ *
+ * (1) TreeSet's constructor with Comparator
  * Create a TreeSet using the constructor below:
  *
  * public class TreeSet<E> extends AbstractSet<E>{
@@ -16,6 +19,14 @@ import java.util.TreeSet;
  *
  * Pay attention to <? super E>, which means could pass in a comparator objector of the superclass of E
  *
+ *
+ * (2) Functional interfaces: its only abstract method could be overridden by lambda expression.
+ * Example of functional interfaces:
+ *      public interface Runnable { void run(); }
+ *      public interface Callable<V> { V call() throws Exception; }
+ *      public interface ActionListener { void actionPerformed(ActionEvent e); }
+ *      public interface OnClickListener { void onClick(View v); } (Android)
+ *      public interface Comparator<T> { int compare(T o1, T o2); boolean equals(Object obj); }
  *
  */
 public class TreeSetTest {
@@ -47,7 +58,5 @@ public class TreeSetTest {
         ts2.add("Hello");
         ts2.add("World");
         System.out.println(ts2);
-
-
     }
 }
