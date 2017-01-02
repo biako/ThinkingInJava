@@ -11,9 +11,14 @@ import static tij.array.generator.GeneratedArray.array;
 /**
  * Created by Xiaolong on 1/2/2017.
  *
- *
- *
  * Thinking in Java p561
+ *
+ * Once an array is sorted, you can perform a fast search
+ * for a particular item by using Arrays.binarySearch( ).
+ * However, if you try to use binarySearchC ) on an unsorted
+ * array the results will be unpredictable. The following
+ * example uses a RandomGenerator.Integer to fill an array,
+ * and then uses the same generator to produce search values
  *
  *
  */
@@ -25,6 +30,8 @@ public class ArraySearching {
                 array(new Integer[25], gen));
         Arrays.sort(a);
         System.out.println("Sorted array: " + Arrays.toString(a));
+
+        // In the while loop, random values are generated as search items until one of them is found.
         while (true) {
             int r = gen.next();
             int location = Arrays.binarySearch(a, r);
