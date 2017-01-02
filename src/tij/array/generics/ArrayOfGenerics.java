@@ -4,6 +4,12 @@ import java.util.*;
 
 /**
  * Created by Xiaolong on 1/2/2017.
+ *
+ * Thinking in Java p544
+ *
+ * Although you cannot create an actual array object
+ * that holds generics, you can create an array of the non-generified type and cast it:
+ *
  */
 
 class BerylliumSphere {
