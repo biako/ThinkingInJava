@@ -10,8 +10,12 @@ import static tij.array.generator.GeneratedArray.array;
 
 /**
  * Created by Xiaolong on 1/2/2017.
- * <p>
+ *
+ *
+ *
  * Thinking in Java p561
+ *
+ *
  */
 public class ArraySearching {
     public static void main(String[] args) {

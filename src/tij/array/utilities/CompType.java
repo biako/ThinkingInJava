@@ -15,26 +15,26 @@ import static tij.array.generator.GeneratedArray.array;
  * Two ways of comparison in Java:
  *
  * (1) Implementation of Comparable:
- *      See this CompType.java
+ *      See CompType.java in this example.
  *
  * a. The class implements java.lang.Comparable, which has only a single method, compareTo( );
  *
- * b. Rewrite compareTo();
+ * b. Override public int compareTo(Type rv);
  *
  *     (current < compared ? -1 : (current == compared 0 : 1))
  *
- *      This method takes another object of the same type as an argument
- *      and produces a negative value if the current object is less than the argument,
- *      zero if the argument is equal,
- *      and a positive value if the current object is greater than the argument.
+ *      This method takes another object of the same type as an argument and produces:
+ *      - a negative value if the current object is less than the argument,
+ *      - zero if the argument is equal, and
+ *      - a positive value if the current object is greater than the argument.
  *
- * c. Using the Java standard library method Arrays.sort( ).
+ * c. Using the Java standard library method Arrays.sort(Object[] a).
  *
  *      public class Type implements Comparable<Type>{
  *          // e.g. private int i;
  *          @ Override
  *          public int compareTo(Type rv) {
- *              return (_____ ? -1 : (_______? 0 : 1));
+ *              return (______ ? -1 : (_______? 0 : 1));
  *              // e.g. comparing the i value, like:
  *              // return (i < rv.i ? -1 : (i== rv.i ? 0 : 1))
  *          }
@@ -42,10 +42,15 @@ import static tij.array.generator.GeneratedArray.array;
  *
  *      For arrays, then use Arrays.sort(Object[] a):
  *
- * (2) Use a Comparator:
- *      see ComparatorTest.java
+ * (2) Using a type-specific comparator that implements java.util.Comparator:
+ *      See ComparatorTest.java
  *
+ *  a. Create a type-specific comparator that implements java.util.Comparator
  *
+ *  b. Override public int compare(Type o1, Type o2)
+ *      Three ways: 1. A separate class; 2. anonymous inner class; 3. lambda expression.
+ *
+ *  c. Using the Java standard library method Arrays.sort(Type a, Comparator<Type> c ).
  *
  *
  */

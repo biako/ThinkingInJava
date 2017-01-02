@@ -4,16 +4,16 @@ import java.util.*;
 
 /**
  * Created by Xiaolong on 1/2/2017.
- * <p>
+ *
  * Thinking in Java p556-557
  *
  * Comparing arrays using Arrays.equals(Object[] a, Object[] a2):
  *
  *      public static boolean equals(Object[] a, Object[] a2)
- * <p>
+ *
  * Arrays provides the equals( ) method to compare entire
  * arrays for equality, which is overloaded for all the primitives and for Object.
- * <p>
+ *
  * (For primitives, that primitive’s wrapper class equals( )
  * is used; for example, Integer.equals( ) for int.)
  */
