@@ -19,7 +19,7 @@ import java.util.*;
  */
 public class ComparingArrays {
     public static void main(String[] args) {
-        //
+        // Primitives:
         int[] a1 = new int[10];
         int[] a2 = new int[10];
         Arrays.fill(a1, 47);
@@ -29,7 +29,7 @@ public class ComparingArrays {
         a2[3] = 11;
         System.out.println(Arrays.equals(a1, a2));
 
-        //
+        // Objects:
         String[] s1 = new String[4];
         Arrays.fill(s1, "Hi");
         String[] s2 = {new String("Hi"), new String("Hi"),
