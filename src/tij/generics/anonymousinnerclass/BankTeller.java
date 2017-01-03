@@ -1,4 +1,4 @@
-package tij.generics.anonymousinnerclasse;
+package tij.generics.anonymousinnerclass;
 
 import tij.generics.genericinterface.Generator;
 import tij.generics.genericinterface.Generators;

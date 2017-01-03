@@ -1,7 +1,6 @@
-package tij.enums.basic.staticimport;
+package tij.enums.staticimport;
 
 // Import static for the enum. Do NOT for get the ".*" in the end!!
-import static tij.enums.basic.staticimport.Spiciness.*;
 
 /**
  * Created by Xiaolong on 1/3/2017.
@@ -16,9 +15,9 @@ public class Burrito {
     public Burrito(Spiciness degree) { this.degree = degree;}
     public String toString() { return "Burrito is "+ degree;}
     public static void main(String[] args) {
-        System.out.println(new Burrito(FLAMING));
-        System.out.println(new Burrito(MILD));
-        System.out.println(new Burrito(MILD));
+        System.out.println(new Burrito(Spiciness.FLAMING));
+        System.out.println(new Burrito(Spiciness.MILD));
+        System.out.println(new Burrito(Spiciness.MILD));
     }
 
 }

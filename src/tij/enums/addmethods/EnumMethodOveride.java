@@ -1,4 +1,4 @@
-package tij.enums.basic.addmethods;
+package tij.enums.addmethods;
 
 /**
  * Created by Xiaolong on 1/3/2017.

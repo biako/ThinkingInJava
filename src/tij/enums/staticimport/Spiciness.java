@@ -1,4 +1,4 @@
-package tij.enums.basic.staticimport;
+package tij.enums.staticimport;
 
 /**
  * Created by Xiaolong on 1/3/2017.
