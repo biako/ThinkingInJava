@@ -11,7 +11,7 @@ import java.util.*;
 
 public class ContainerMethodDifferences {
 
-    // Return all the methods of the class as a Set
+    // Return all the addmethods of the class as a Set
     static Set<String> methodSet(Class<?> type) {
         Set<String> result = new TreeSet<>();
         for (Method m : type.getMethods())
@@ -41,7 +41,7 @@ public class ContainerMethodDifferences {
                 " extends " + subset.getSimpleName() + ", adds: ");
         Set<String> comp = Sets.difference(
                 methodSet(superset), methodSet(subset));
-        comp.removeAll(object); // Don't show "Object"'s methods
+        comp.removeAll(object); // Don't show "Object"'s addmethods
         System.out.println(comp);
         interfaces(superset);
         System.out.println();

@@ -36,7 +36,7 @@ public class GenericWriting {
      * In writeWithWildcard( ), the argument is now a List<? super T>,
      * so the List holds a specific type that is derived from T; thus
      * it is safe to pass a T or anything derived from T as an argument
-     * to List methods. You can see this in f2( ), where it’s still
+     * to List addmethods. You can see this in f2( ), where it’s still
      * possible to put an Apple.
      *
      * */

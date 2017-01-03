@@ -7,7 +7,7 @@ package tij.generics.genericinterface;
  *
  * Use next() to get a new instance of type T
  *
- * Class<T> means the class has type T members or methods of type T return values
+ * Class<T> means the class has type T members or addmethods of type T return values
  *
  * public <T> void method(T arg) means the method has type T argument.
  *

@@ -7,7 +7,7 @@ package tij.typeinformation.reflection;
  *
  * Default argument: ShowMethods
  *
- * To list all the methods in the class identified by the argument.
+ * To list all the addmethods in the class identified by the argument.
  *
  * Use Pattern.matcher to remove the extra class information in the format of "xxx.xxx.xxx."
  *
@@ -25,9 +25,9 @@ import java.util.regex.*;
 public class ShowMethods {
     private static String usage = "usage:\n" +
             "ShowMethods qualified.class.name\n" +
-            "To show all methods in class or:\n" +
+            "To show all addmethods in class or:\n" +
             "ShowMethods qualified.class.name word\n" +
-            "To search for methods involving ‘word’";
+            "To search for addmethods involving ‘word’";
     private static Pattern p = Pattern.compile("\\w+\\.");
 
     public static void main(String[] args) {
@@ -50,7 +50,7 @@ public class ShowMethods {
 
 
 /*
-            for (Method method : methods)
+            for (Method method : addmethods)
                 System.out.println(
                         method.toString());
             for (Constructor ctor : ctors)
@@ -60,14 +60,14 @@ public class ShowMethods {
 
 
             /*if (args.length == 1) {
-                for (Method method : methods)
+                for (Method method : addmethods)
                     System.out.println(
                             p.matcher(method.toString()).replaceAll(""));
                 for (Constructor ctor : ctors)
                     System.out.println(p.matcher(ctor.toString()).replaceAll(""));
-                lines = methods.length + ctors.length;
+                lines = addmethods.length + ctors.length;
             } else {
-                for (Method method : methods)
+                for (Method method : addmethods)
                     if (method.toString().contains(args[1])) {
                         System.out.println(
                                 p.matcher(method.toString()).replaceAll(""));

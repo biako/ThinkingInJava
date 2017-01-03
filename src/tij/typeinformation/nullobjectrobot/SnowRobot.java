@@ -26,7 +26,7 @@ public class SnowRobot implements Robot {
         // Will return a List of operation
         return Arrays.asList(
                 // Use anonymous classes here to implement the Operation interface,
-                // overriding the two methods description() and command().
+                // overriding the two addmethods description() and command().
                 new Operation() {
                     public String description() {
                         return name + " can shovel snow";

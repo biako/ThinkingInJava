@@ -213,7 +213,7 @@ public class StringTest {
     }
 
     /** To demonstrate an existing Matcher object can be applied to a new character
-     *  sequence using the reset( ) methods:*/
+     *  sequence using the reset( ) addmethods:*/
     public static void regexMatcherReset() {
         Matcher m = Pattern.compile("[frb][aiu][gx]")
                 .matcher("fix the rug with bags");

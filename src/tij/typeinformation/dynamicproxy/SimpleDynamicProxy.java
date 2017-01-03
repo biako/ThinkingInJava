@@ -21,7 +21,7 @@ class DynamicProxyHandler implements InvocationHandler {
     // The proxy re-implement the interface, also calling the proxied's implementation at the same time.
     // Dynamically calling by returning method.invoke(proxied, args).
     // Before that, the proxy can do something dynamic.
-    // Advantage is that no need to re-implement each methods; only have to call them dynamically.
+    // Advantage is that no need to re-implement each addmethods; only have to call them dynamically.
     public Object
     invoke(Object proxy, Method method, Object[] args)
             throws Throwable {

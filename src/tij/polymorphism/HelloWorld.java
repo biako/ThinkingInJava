@@ -9,7 +9,7 @@ class HelloWorld {
         System.out.println("HelloWorld Constructor!");
     }
 
-    // Without "public": the methods are package-private
+    // Without "public": the addmethods are package-private
     void method1(float a) {
         System.out.println("Method 1 (int) is called!");
         System.out.println(a);

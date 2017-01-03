@@ -55,7 +55,7 @@ class DogBoy extends CanineHero<SuperHearSmell> {
 
 public class EpicBattle {
 
-    // Bounds in generic methods:
+    // Bounds in generic addmethods:
     static <POWER extends SuperHearing>
     void useSuperHearing(SuperHero<POWER> hero) {
         hero.getPower().hearSubtleNoises();

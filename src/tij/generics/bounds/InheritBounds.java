@@ -10,7 +10,7 @@ package tij.generics.bounds;
  * to HasColor.
  *
  * ColoredDimension2 and Solid2 further extend the hierarchy
- * and add bounds at each level. Now the methods are inherited
+ * and add bounds at each level. Now the addmethods are inherited
  * and they don’t have to be repeated in each class.
  */
 
