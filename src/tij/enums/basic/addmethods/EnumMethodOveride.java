@@ -2,13 +2,12 @@ package tij.enums.basic.addmethods;
 
 /**
  * Created by Xiaolong on 1/3/2017.
- *
+ * <p>
  * Thinking in Java p728
- *
+ * <p>
  * Example to show how to override methods
- *
  */
-public enum SpaceShip {
+enum SpaceShip {
     SCOUT, CARGO, TRANSPORT, CRUISER, BATTLESHIP, MOTHERSHIP;
 
     // toString() of the entire enum is overridden:
@@ -19,8 +18,11 @@ public enum SpaceShip {
         return id.charAt(0) + lower;
     }
 
+}
+
+public class EnumMethodOveride {
     public static void main(String[] args) {
-        for(SpaceShip s : values()) {
+        for (SpaceShip s : SpaceShip.values()) {
             System.out.println(s);
         }
     }
