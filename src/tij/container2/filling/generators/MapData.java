@@ -10,6 +10,17 @@ import java.util.*;
  * Created by Xiaolong on 1/7/2017.
  *
  * Thinking in Java p571-572
+ *
+ * MapData adapter is a map filled with data using using various combinations of
+ * Generators, Iterables, and constant values to fill Map initialization objects.
+ *
+ * Design Pattern: Adapter design pattern; it adapts a Generator to the constructor /putAll() method for a Map.
+ *
+ * MapData can be used by calling:
+ * (1) overloaded public constructor; or
+ * (2) overloaded static method map()
+ *
+ *
  */
 
 public class MapData<K, V> extends LinkedHashMap<K, V> {
@@ -36,21 +47,23 @@ public class MapData<K, V> extends LinkedHashMap<K, V> {
         }
     }
 
-    // An Iterable and a value Generator:
+    // An Iterable and a value Generator (as there is an Iterable, there is no quantity):
+    // Use Iterable in foreach
     public MapData(Iterable<K> genK, Generator<V> genV) {
         for (K key : genK) {
             put(key, genV.next());
         }
     }
 
-    // An Iterable and a single value:
+    // An Iterable and a single value (as there is an Iterable, there is no quantity):
+    // Use Iterable in foreach
     public MapData(Iterable<K> genK, V value) {
         for (K key : genK) {
             put(key, value);
         }
     }
 
-    // Generic convenience static methods:
+    // Generic convenience static methods calling the public constructors above:
     public static <K, V> MapData<K, V>
     map(Generator<Pair<K, V>> gen, int quantity) {
         return new MapData<K, V>(gen, quantity);

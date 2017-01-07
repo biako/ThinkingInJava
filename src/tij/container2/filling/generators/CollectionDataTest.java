@@ -10,7 +10,7 @@ import java.util.*;
  *
  * Thinking in Java p569-570
  *
- * Example to use CollectionData as an adaptor to using the generator to fill a Collection class
+ * Example to use CollectionData as an adaptor to using various Generators to fill a Collection class
  *
  */
 // The TestStrings Generator (implementing the Generator interface)

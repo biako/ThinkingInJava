@@ -8,7 +8,7 @@ import java.util.*;
  *
  * Thinking in Java p569
  *
- * CollectionData is a Collection filled with data using a Generator object.
+ * CollectionData adapter is a Collection filled with data using a Generator object.
  *
  * Design Pattern: Adapter design pattern; it adapts a Generator to the constructor / addAll() method for a Collection.
  *
