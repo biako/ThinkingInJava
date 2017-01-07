@@ -7,16 +7,26 @@ import java.util.*;
  *  *
  * Thinking in Java p583-584
  *
- * Unsupported operations in Java containers.
+ * Unsupported operations in Java containers:
+ *  will throw UnsupportedOperationException
+ *
+ * (1) Arrays.asList( ) returns a fixed-sized List:
+ *      Unsupported: retainAll(), removeAll(), clear(), add(), addAll(), remove()
+ *
+ * (2) Collections.unmodifiableList( ) returns a list that cannot be changed:
+ *      Unsupported: the methods above and List.set()
+ *
  *
  */
 public class Unsupported {
     static void test(String msg, List<String> list) {
         System.out.println("--- " + msg + " ---");
+
         Collection<String> c = list;
         Collection<String> subList = list.subList(1,8);
         // Copy of the sublist:
-        Collection<String> c2 = new ArrayList<String>(subList);
+        Collection<String> c2 = new ArrayList<>(subList);
+
         try { c.retainAll(c2); } catch(Exception e) {
             System.out.println("retainAll(): " + e);
         }
@@ -38,9 +48,15 @@ public class Unsupported {
 
         // The List.set() method modifies the value but
         // doesn’t change the size of the data structure:
-        try {
-            list.set(0, "X");
-        } catch(Exception e) {
+        /* The last try block in test( ) examines the set( ) method
+           that’s part of List. This is interesting, because you can see
+           how the granularity of the "unsupported operation" technique
+           comes in handy—the resulting "interface" can vary by one method
+           between the object returned by Arrays.asList( ) and that returned
+           by Collections.unmodifiableList( ). Arrays.asList( ) returns a
+           fixed-sized List, whereas Collections.unmodifiableList( ) produces
+           a list that cannot be changed. */
+        try {list.set(0, "X");} catch(Exception e) {
             System.out.println("List.set(): " + e);
         }
     }
@@ -50,7 +66,6 @@ public class Unsupported {
         test("Modifiable Copy", new ArrayList<String>(list));
         test("Arrays.asList()", list);
         test("unmodifiableList()",
-                Collections.unmodifiableList(
-                        new ArrayList<String>(list)));
+                Collections.unmodifiableList(new ArrayList<String>(list)));
     }
 }

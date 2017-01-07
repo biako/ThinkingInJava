@@ -8,6 +8,9 @@ import tij.container2.filling.abstractclass.Countries;
  * Created by Xiaolong on 1/7/2017.
  *
  * Thinking in Java p581-582
+ *
+ * Things you can do with all Collections.
+ *
  */
 public class CollectionMethods {
     public static void main(String[] args) {
