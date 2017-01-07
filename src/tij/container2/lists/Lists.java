@@ -12,7 +12,7 @@ import java.util.*;
  * add() to insert objects, use get() to get them out one at a time,
  * and call iterator() to get an Iterator for the sequence.
  *
- * I. Basic methods of a List
+ * I. Basic methods of a List (ArrayList and LinkedList)
  *  boolean add(Object),
  *  void add(int,Object),
  *  Object remove(int),
@@ -38,7 +38,7 @@ import java.util.*;
  *  boolean removeAll(Collection),
  *  boolean retainAll(Collection)
  *
- * II. LinkedList:
+ * II. LinkedList: Additional
  *  void addFirst(E e),
  *  void addLast
  *  getFirst(),
