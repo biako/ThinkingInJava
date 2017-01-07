@@ -8,6 +8,25 @@ import java.util.*;
  * Thinking in Java p589-590
  *
  *
+ * I. Set (interface)
+ *  Each element that you add to the Set must be unique; otherwise, the Set doesn’t add the duplicate element.
+ *  Elements added to a Set must at least define equals( ) to establish object uniqueness.
+ *  Set has exactly the same interface as Collection. *
+ *  The Set interface does not guarantee that it will maintain its elements in any particular order.
+ *
+ * II. HashSet*
+ * For Sets where fast lookup time is important. Elements must also define hashCode( ).
+ *
+ * III. TreeSet
+ * An ordered Set backed by a tree. This way, you can extract an ordered
+ * sequence from a Set. Elements must also implement the Comparable interface.
+ *
+ * IV. LinkedHashSet
+ * Has the lookup speed of a HashSet, but internally maintains the order
+ * in which you add the elements (the insertion order) using a linked list.
+ * Thus, when you iterate through the Set, the results appear in insertion order.
+ * Elements must also define hashCode( ).
+ *
  */
 class SetType {
     int i;
