@@ -6,8 +6,38 @@ import java.util.*;
  * Created by Xiaolong on 1/7/2017.
  *
  * Thinking in Java p573-577
+ *
+ *
+ * FlyweightMap must implement the entrySet() method, which requires
+ * both a custom Set implementation and a custom Map.Entry class.
+ *
+ * Here’s part of the flyweight: each Map.Entry object simply stores its index,
+ * rather than the actual key and value. When you call getKey( ) or getValue( ),
+ * it uses the index to return the appropriate DATA element.
+ *
+ * The EntrySet ensures that its size is no bigger than DATA.
+ *
+ * You can see the other part of the flyweight implemented in EntrySet.Iterator.
+ * Instead of creating a Map.Entry object for each data pair in DATA,
+ * there’s only one Map.Entry object per iterator.
+
+ * The Entry object is used as a window into the data;
+ * it only contains an index into the static array of strings.
+
+ * Every time you call next( ) for the iterator, the index in the Entry is incremented
+
+ * so that it points to the next element pair, and then that Iterator’s single Entry object
+ * is returned from next( ).
+
+ * The select( ) method produces a FlyweightMap containing an EntrySet of the desired size,
+ * and this is used in the overloaded capitals( ) and names( ) methods that you see demonstrated in main( ).
+ *
+ *
+ *
  */
 public class Countires {
+
+    // The two-dimensional array of String DATA is public so it can be used elsewhere.
     public static final String[][] DATA = {
 // Africa
             {"ALGERIA","Algiers"}, {"ANGOLA","Luanda"},
@@ -136,20 +166,26 @@ public class Countires {
 
 
 
-
     private static class FlyweightMap extends AbstractMap<String,String> {
 
-        //
-        private static class Entry
-                implements Map.Entry<String,String> {
+        //   FlyweightMap must implement the entrySet() method, which requires
+        //   both a custom Set implementation and a custom Map.Entry class.
+        //   Here’s part of the flyweight: each Map.Entry object simply stores its index,
+        //   rather than the actual key and value. When you call getKey( ) or getValue( ),
+        //   it uses the index to return the appropriate DATA element.
 
+        private static class Entry implements Map.Entry<String,String> {
+            // Use index number to get the key and value
+            // Index is assigned by the constructor of Entry(int index)
             int index;
             Entry(int index) { this.index = index; }
 
             public boolean equals(Object o) {
                 return DATA[index][0].equals(o);
             }
+            // DATA[index][0] is the key
             public String getKey() { return DATA[index][0]; }
+            // DATA[index][1] is the value
             public String getValue() { return DATA[index][1]; }
             public String setValue(String value) {
                 throw new UnsupportedOperationException();
@@ -161,15 +197,16 @@ public class Countires {
 
 
         // Use AbstractSet by implementing size() & iterator()
-        static class EntrySet
-                extends AbstractSet<Map.Entry<String,String>> {
-
+        // EntrySet will store the entries in the Map in a Set
+        // EntrySet(int size) is used to return the entries of a given size
+        static class EntrySet extends AbstractSet<Map.Entry<String,String>> {
             private int size;
 
+            // Will return the Set of the given size
             EntrySet(int size) {
                 if(size < 0)
                     this.size = 0;
-        // Can't be any bigger than the array:
+                    // Can't be any bigger than the array:
                 else if(size > DATA.length)
                     this.size = DATA.length;
                 else
@@ -178,8 +215,7 @@ public class Countires {
 
             public int size() { return size; }
 
-            private class Iter
-                    implements Iterator<Map.Entry<String,String>> {
+            private class Iter implements Iterator<Map.Entry<String,String>> {
                 // Only one Entry object per Iterator:
                 private Entry entry = new Entry(-1);
                 public boolean hasNext() {
@@ -194,15 +230,17 @@ public class Countires {
                 }
             }
 
-            public
-            Iterator<Map.Entry<String,String>> iterator() {
+            public Iterator<Map.Entry<String,String>> iterator() {
                 return new Iter();
             }
         }
 
+        // Entries contain the entire key-value pairs as a Set
         private static Set<Map.Entry<String,String>> entries =
                 new EntrySet(DATA.length);
-
+        @Override
+        // Override the entrySet() method
+        // Returning entire entries as a Set
         public Set<Map.Entry<String,String>> entrySet() {
             return entries;
         }
@@ -210,44 +248,57 @@ public class Countires {
 
 
 
+    // The select() method produces a FlyweightMap containing an EntrySet of the desired size,
+    // and this is used in the overloaded capitals() and names() methods that you see demonstrated in main().
     // Create a partial map of 'size' countries:
     static Map<String,String> select(final int size) {
         return new FlyweightMap() {
+            @Override
+            // Returning entries of the given size, will call the constructor EntrySet(int size)
             public Set<Map.Entry<String,String>> entrySet() {
                 return new EntrySet(size);
             }
         };
     }
 
+
+
+    // static FlyweightMap containing the entire map (country names as key and capitals as value)
     static Map<String,String> map = new FlyweightMap();
-
+    // The entire map:
     public static Map<String,String> capitals() {
-        return map; // The entire map
+        return map;
     }
-
+    // A partial map:
     public static Map<String,String> capitals(int size) {
-        return select(size); // A partial map
+        return select(size);
     }
 
-    static List<String> names =
-            new ArrayList<String>(map.keySet());
 
+    // names contain all the names:
+    static List<String> names = new ArrayList<>(map.keySet()); // Only has map's key (i.e. Country names)
     // All the names:
     public static List<String> names() { return names; }
-
-    // A partial list:
+    // A partial list: (the keyset() of the partial map)
     public static List<String> names(int size) {
-        return new ArrayList<String>(select(size).keySet());
+        return new ArrayList<>(select(size).keySet());
     }
 
 
     public static void main(String[] args) {
+        // Getting all or a given size
+        System.out.println(capitals());
+        System.out.println(names());
         System.out.println(capitals(10));
         System.out.println(names(10));
+
+        // Getting the country-capital pairs
         System.out.println(new HashMap<String,String>(capitals(3)));
         System.out.println(new LinkedHashMap<String,String>(capitals(3)));
         System.out.println(new TreeMap<String,String>(capitals(3)));
         System.out.println(new Hashtable<String,String>(capitals(3)));
+
+        // Only getting the country names
         System.out.println(new HashSet<String>(names(6)));
         System.out.println(new LinkedHashSet<String>(names(6)));
         System.out.println(new TreeSet<String>(names(6)));
