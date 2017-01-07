@@ -11,6 +11,48 @@ import tij.container2.filling.abstractclass.Countries;
  *
  * Things you can do with all Collections.
  *
+ * boolean add(T):
+ Ensures that the container holds the argument which is of generic type T. Returns false if it doesn’t add the argument. (This is an "optional" method, described in the next section.)
+
+ boolean addAll( Collection<? extends T>):
+ Adds all the elements in the argument. Returns true if any elements were added. ("Optional.")
+
+ void clear():
+ Removes all the elements in the container. ("Optional.")
+
+ boolean contains (T):
+ true if the container holds the argument which is of generic type T.
+
+ Boolean containsAll( Collection<?>)
+ true if the container holds all the elements in the argument.
+
+ boolean isEmpty():
+ true if the container has no elements.
+
+ Iterator<T> iterator():
+ Returns an Iterator<T> that you can use to move through the elements in the container.
+
+ Boolean remove(Object):
+ If the argument is in the container, one instance of that element is removed. Returns true if a removal occurred. ("Optional")
+
+ boolean removeAll(Collection<?>)
+ Removes all the elements that are contained in the argument. Returns true if any removals occurred. ("Optional.")
+
+ Boolean retainAll(Collection<?>)
+ Retains only elements that are contained in the argument (an "intersection," from set theory). Returns true if any
+ changes occurred. ("Optional.")
+
+ int size():
+ Returns the number of elements in the container.
+
+ Object[] toArray():
+ Returns an array containing all the elements in the container.
+
+ <T>T[] toArray(T[] a):
+ Returns an array containing all the elements in the container. The runtime type of the result is that of the argument array a rather than plain Object.
+ *
+ *
+ *
  */
 public class CollectionMethods {
     public static void main(String[] args) {
