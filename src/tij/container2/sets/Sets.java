@@ -14,7 +14,7 @@ import java.util.*;
  * Set has exactly the same interface as Collection. *
  * The Set interface does not guarantee that it will maintain its elements in any particular order.
  *
- * II. HashSet*
+ * II. HashSet
  * For Sets where fast lookup time is important. Elements must also define hashCode( ).
  *
  * III. TreeSet
