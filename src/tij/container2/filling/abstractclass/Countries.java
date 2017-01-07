@@ -7,6 +7,7 @@ import java.util.*;
  *
  * Thinking in Java p573-577
  *
+ * Example to generate maps from a 2-D array
  *
  * FlyweightMap must implement the entrySet() method, which requires
  * both a custom Set implementation and a custom Map.Entry class.
@@ -35,7 +36,7 @@ import java.util.*;
  *
  *
  */
-public class Countires {
+public class Countries {
 
     // The two-dimensional array of String DATA is public so it can be used elsewhere.
     public static final String[][] DATA = {
@@ -180,16 +181,21 @@ public class Countires {
             int index;
             Entry(int index) { this.index = index; }
 
+            @Override
             public boolean equals(Object o) {
                 return DATA[index][0].equals(o);
             }
+            @Override
             // DATA[index][0] is the key
             public String getKey() { return DATA[index][0]; }
             // DATA[index][1] is the value
+            @Override
             public String getValue() { return DATA[index][1]; }
+            @Override
             public String setValue(String value) {
                 throw new UnsupportedOperationException();
             }
+            @Override
             public int hashCode() {
                 return DATA[index][0].hashCode();
             }
@@ -213,23 +219,28 @@ public class Countires {
                     this.size = size;
             }
 
+            @Override
             public int size() { return size; }
 
             private class Iter implements Iterator<Map.Entry<String,String>> {
                 // Only one Entry object per Iterator:
                 private Entry entry = new Entry(-1);
+                @Override
                 public boolean hasNext() {
                     return entry.index < size - 1;
                 }
+                @Override
                 public Map.Entry<String,String> next() {
                     entry.index++;
                     return entry;
                 }
+                @Override
                 public void remove() {
                     throw new UnsupportedOperationException();
                 }
             }
 
+            @Override
             public Iterator<Map.Entry<String,String>> iterator() {
                 return new Iter();
             }
@@ -253,8 +264,8 @@ public class Countires {
     // Create a partial map of 'size' countries:
     static Map<String,String> select(final int size) {
         return new FlyweightMap() {
-            @Override
             // Returning entries of the given size, will call the constructor EntrySet(int size)
+            @Override
             public Set<Map.Entry<String,String>> entrySet() {
                 return new EntrySet(size);
             }
