@@ -7,7 +7,7 @@ import java.util.*;
 
 /**
  * Created by Xiaolong on 1/7/2017.
- * <p>
+ *
  * Thinking in Java p571-572
  *
  * Example to use MapData as an adaptor to using various Generators,
