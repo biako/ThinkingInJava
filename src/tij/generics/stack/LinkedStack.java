@@ -43,7 +43,7 @@ public class LinkedStack<T> {
 
     // Push an item of type T into the stack
     public void push(T item) {
-        top = new Node<T>(item, top);
+        top = new Node<>(item, top);
     }
 
     // Pop an item of type T from the stack.

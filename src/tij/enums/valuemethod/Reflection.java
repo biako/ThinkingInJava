@@ -21,7 +21,7 @@ public class Reflection {
             System.out.println(t);
         System.out.println("Base: " + enumClass.getSuperclass());
         System.out.println("Methods: ");
-        Set<String> methods = new TreeSet<String>();
+        Set<String> methods = new TreeSet<>();
         for (Method m : enumClass.getMethods())
             methods.add(m.getName());
         System.out.println(methods);

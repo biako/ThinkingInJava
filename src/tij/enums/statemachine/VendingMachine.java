@@ -32,7 +32,7 @@ enum Category {
     // Creating a static EnumMap reflecting the mapping relationship
     // Initializing and putting the enums in the categories into the EnumMap
     private static EnumMap<Input, Category> categories =
-            new EnumMap<Input, Category>(Input.class);
+            new EnumMap<>(Input.class);
 
     static {
         for (Category c : Category.class.getEnumConstants())

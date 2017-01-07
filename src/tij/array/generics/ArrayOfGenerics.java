@@ -21,7 +21,7 @@ public class ArrayOfGenerics {
         List<String>[] ls;
         List[] la = new List[10];
         ls = (List<String>[])la; // "Unchecked" warning
-        ls[0] = new ArrayList<String>();
+        ls[0] = new ArrayList<>();
 
         // Compile-time checking produces an error:
         //! ls[1] = new ArrayList<Integer>();
@@ -39,6 +39,6 @@ public class ArrayOfGenerics {
                 (List<BerylliumSphere>[])new List[10];
 
         for(int i = 0; i < spheres.length; i++)
-            spheres[i] = new ArrayList<BerylliumSphere>();
+            spheres[i] = new ArrayList<>();
     }
 }

@@ -9,7 +9,7 @@ import java.util.List;
  * Created by Xiaolong on 12/25/2016.
  */
 public class IDCardFactory extends Factory {
-    private List<String> owners = new ArrayList<String>();
+    private List<String> owners = new ArrayList<>();
     @Override
     protected Product createProduct(String owner) {
         return new IDCard(owner);

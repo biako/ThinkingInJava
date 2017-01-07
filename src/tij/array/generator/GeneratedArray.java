@@ -22,7 +22,7 @@ class CollectionData<T> extends ArrayList<T> {
     // A generic convenience method:
     public static <T> CollectionData<T>
     list(Generator<T> gen, int quantity) {
-        return new CollectionData<T>(gen, quantity);
+        return new CollectionData<>(gen, quantity);
     }
 }
 
@@ -30,7 +30,7 @@ public class GeneratedArray {
 
     // Fill an existing array:
     public static <T> T[] array(T[] a, Generator<T> gen) {
-        return new CollectionData<T>(gen, a.length).toArray(a);
+        return new CollectionData<>(gen, a.length).toArray(a);
     }
 
     // Create a new array:
@@ -39,7 +39,7 @@ public class GeneratedArray {
                                 Generator<T> gen, int size) {
         T[] a =
                 (T[]) java.lang.reflect.Array.newInstance(type, size);
-        return new CollectionData<T>(gen, size).toArray(a);
+        return new CollectionData<>(gen, size).toArray(a);
     }
 
 

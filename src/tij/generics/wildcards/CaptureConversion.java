@@ -42,7 +42,7 @@ public class CaptureConversion {
 
    // @SuppressWarnings("unchecked")
     public static void main(String[] args) {
-        Holder raw = new Holder<Integer>(1);
+        Holder raw = new Holder<>(1);
         f1(raw); // Produces warnings
         f2(raw); // No warnings
 
@@ -51,7 +51,7 @@ public class CaptureConversion {
         f2(rawBasic); // No warnings
 
         // Upcast to Holder<?>, still figures it out:
-        Holder<?> wildcarded = new Holder<Double>(1.0);
+        Holder<?> wildcarded = new Holder<>(1.0);
         f2(wildcarded);
     }
 }

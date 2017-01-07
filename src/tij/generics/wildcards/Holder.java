@@ -17,7 +17,7 @@ public class Holder<T> {
     }
 
     public static void main(String[] args) {
-        Holder<Apple> Apple = new Holder<Apple>(new Apple());
+        Holder<Apple> Apple = new Holder<>(new Apple());
         Apple d = Apple.get();
         Apple.set(d);
         // Holder<Fruit> Fruit = Apple; // Cannot upcast!!

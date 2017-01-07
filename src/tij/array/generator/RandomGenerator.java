@@ -14,7 +14,7 @@ import java.util.*;
  *
  */
 public class RandomGenerator {
-    private static Random r = new Random(47);
+    private static Random r = new Random(System.nanoTime());
     public static class
     Boolean implements Generator<java.lang.Boolean> {
         public java.lang.Boolean next() {

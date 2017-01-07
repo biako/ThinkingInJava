@@ -6,11 +6,11 @@ package tij.generics.tuple;
 public class Tuple {
     // The method's argument type is <A, B>; TwoTuple also holds <A, B>
     public static <A, B> TwoTuple<A, B> tuple(A a, B b) {
-        return new TwoTuple<A, B>(a, b);
+        return new TwoTuple<>(a, b);
     }
 
     public static <A, B, C> ThreeTuple<A, B, C> tuple(A a, B b, C c) {
-        return new ThreeTuple<A, B, C>(a, b, c);
+        return new ThreeTuple<>(a, b, c);
     }
 
 }

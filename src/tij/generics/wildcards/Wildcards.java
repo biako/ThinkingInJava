@@ -70,9 +70,9 @@ public class Wildcards {
         Holder raw = new Holder<Long>();
         // Or:
         raw = new Holder();
-        Holder<Long> qualified = new Holder<Long>();
+        Holder<Long> qualified = new Holder<>();
         Holder<?> unbounded = new Holder<Long>();
-        Holder<? extends Long> bounded = new Holder<Long>();
+        Holder<? extends Long> bounded = new Holder<>();
         Long lng = 1L;
         rawArgs(raw, lng);
         rawArgs(qualified, lng);
