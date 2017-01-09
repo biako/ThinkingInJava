@@ -9,6 +9,24 @@ package tij.container2.maps;
  *
  * An associative array: 2-D array consisting of a key-value pair. It is a fixed-length type of map.
  *
+ * The essential methods in an associative array are put( ) and get( ),
+ * but for easy display, toString( ) has been overridden to print the key-value pairs.
+ *
+ * To show that it works, main( ) loads an AssociativeArray with pairs of strings and
+ * prints the resulting map, followed by a get( ) of one of the values.
+ *
+ * To use the get( ) method, you pass in the key that you want it to look up, and it
+ * produces the associated value as the result or returns null if it can’t be found.
+ * The get( ) method is using what is possibly the least efficient approach imaginable
+ * to locate the value: starting at the top of the array and using equals( ) to compare
+ * keys. But the point here is simplicity, not efficiency.
+ *
+ * So the above version is instructive, but it isn’t very efficient and it has a fixed size,
+ * which is inflexible. Fortunately, the Maps in java.util do not have these problems and
+ * can be substituted into the above example
+ *
+ *
+ *
  */
 public class AssociativeArray<K,V> {
     private Object[][] pairs;
@@ -32,6 +50,7 @@ public class AssociativeArray<K,V> {
         return null; // Did not find key
     }
 
+    @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < index; i++) {

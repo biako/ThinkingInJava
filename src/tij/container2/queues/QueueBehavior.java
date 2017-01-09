@@ -35,6 +35,7 @@ import java.util.concurrent.*;
  * (5) LinkedBlockingQueue<>
  * (6) PriorityBlockingQueue<>
  *
+ * To use PriorityQueue / PriorityBlockingQueue, elements must also implement the Comparable interface.
  *
  */
 public class QueueBehavior {
