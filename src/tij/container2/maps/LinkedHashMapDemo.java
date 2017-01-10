@@ -10,7 +10,7 @@ import java.util.*;
  * Thinking in Java p603-604
  *
  * In addition, a LinkedHashMap can be configured in the constructor to use
- * a leastrecently-used (LRU) algorithm based on accesses, so elements that
+ * a least recently-used (LRU) algorithm based on accesses, so elements that
  * haven’t been accessed (and thus are candidates for removal) appear at the
  * front of the list. This allows easy creation of programs that do periodic
  * cleanup in order to save space.
