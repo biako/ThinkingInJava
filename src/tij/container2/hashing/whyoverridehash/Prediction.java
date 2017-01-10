@@ -1,4 +1,4 @@
-package tij.container2.hashing.nooverriddenhash;
+package tij.container2.hashing.whyoverridehash;
 
 /**
  * Created by Xiaolong on 1/10/2017.

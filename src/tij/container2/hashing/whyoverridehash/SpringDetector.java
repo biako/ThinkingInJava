@@ -1,4 +1,4 @@
-package tij.container2.hashing.nooverriddenhash;
+package tij.container2.hashing.whyoverridehash;
 
 import java.lang.reflect.Constructor;
 import java.util.*;
