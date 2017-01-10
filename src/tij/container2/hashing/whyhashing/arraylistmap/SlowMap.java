@@ -34,7 +34,7 @@ public class SlowMap<K,V> extends AbstractMap<K,V> {
     }
 
     public Set<Map.Entry<K,V>> entrySet() {
-        Set<Map.Entry<K,V>> set= new HashSet<Map.Entry<K,V>>();
+        Set<Map.Entry<K,V>> set= new HashSet<>();
         Iterator<K> ki = keys.iterator();
         Iterator<V> vi = values.iterator();
         while(ki.hasNext())
@@ -43,7 +43,7 @@ public class SlowMap<K,V> extends AbstractMap<K,V> {
     }
 
     public static void main(String[] args) {
-        SlowMap<String,String> m= new SlowMap<String,String>();
+        SlowMap<String,String> m= new SlowMap<>();
         m.putAll(Countries.capitals(15));
         System.out.println(m);
         System.out.println(m.get("BULGARIA"));
