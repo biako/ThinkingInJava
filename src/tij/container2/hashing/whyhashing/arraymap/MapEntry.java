@@ -1,4 +1,4 @@
-package tij.container2.hashing.whyhashing;
+package tij.container2.hashing.whyhashing.arraymap;
 
 import java.util.Map;
 
