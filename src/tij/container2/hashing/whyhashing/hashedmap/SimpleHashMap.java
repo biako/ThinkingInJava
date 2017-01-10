@@ -1,7 +1,7 @@
 package tij.container2.hashing.whyhashing.hashedmap;
 
 import tij.container2.filling.abstractclass.Countries;
-import tij.container2.hashing.whyhashing.arraymap.*;
+import tij.container2.hashing.whyhashing.arraylistmap.*;
 
 import java.util.*;
 /**

@@ -1,4 +1,4 @@
-package tij.container2.hashing.whyhashing.arraymap;
+package tij.container2.hashing.whyhashing.arraylistmap;
 
 
 import tij.container2.filling.abstractclass.*;
@@ -6,17 +6,16 @@ import tij.container2.filling.abstractclass.*;
 import java.util.*;
 /**
  * Created by Xiaolong on 1/11/2017.
- * <p>
+ *
  * Thinking in Java p608
  *
  * A Map implemented with ArrayLists.
+ *
+ *
  */
-
-
-
 public class SlowMap<K,V> extends AbstractMap<K,V> {
-    private List<K> keys = new ArrayList<K>();
-    private List<V> values = new ArrayList<V>();
+    private List<K> keys = new ArrayList<>();
+    private List<V> values = new ArrayList<>();
 
     public V put(K key, V value) {
         V oldValue = get(key); // The old value or null
