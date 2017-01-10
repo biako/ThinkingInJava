@@ -20,17 +20,17 @@ import java.util.*;
  *
  * II. Creating new instance using reflection
  *
- * (1) Get the constructor with formal parameter and use the Constructor with formal parameters
+ * (1) Get the constructor with formal parameters and use the Constructor with formal parameters
  *   Constructor<T> getConstruct(Class<?>... parameterTypes): parameterTypes is an array of Class objects that
  *  identify the constructor's formal parameter types, in declared order.
  *
  *      // Get the constructor with an int formal parameter
- *      Constructor<T> typeconstructor = ClassName.class.getConstructor(int.class);
- *      T instance = typeconstructor.newInstance(1);
+ *      Constructor<ClassName> typeconstructor = ClassName.class.getConstructor(int.class);
+ *      ClassName instance = typeconstructor.newInstance(123);
  *
  * (2) Directly use class object but cannot use formal parameter. only can use defaul constructor
  *
- *      T instance = ClassName.class.newInstance();
+ *      ClassName instance = ClassName.class.newInstance();
  *
  * III. A proper equals() must satisfy the following five conditions:
  *
@@ -52,7 +52,7 @@ public class SpringDetector {
         // Groundhod as the key and Prediction as the value:
         Map<Groundhog,Prediction> map = new HashMap<>();
 
-        // put due Groundhod as key and new Prediction as value:
+        // put Groundhod as key and new Prediction as value:
         for(int i = 0; i < 10; i++)
             map.put(ghog.newInstance(i), new Prediction());
         System.out.println("map = " + map); // Note: HashMap will not produce according to insertion order
