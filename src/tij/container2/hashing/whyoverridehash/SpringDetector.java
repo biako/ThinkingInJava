@@ -28,7 +28,7 @@ import java.util.*;
  *      Constructor<ClassName> typeconstructor = ClassName.class.getConstructor(int.class);
  *      ClassName instance = typeconstructor.newInstance(123);
  *
- * (2) Directly use class object but cannot use formal parameter. only can use default constructor
+ * (2) Directly use class object but cannot use formal parameter. Only can use default constructor
  *
  *      ClassName instance = ClassName.class.newInstance();
  *
