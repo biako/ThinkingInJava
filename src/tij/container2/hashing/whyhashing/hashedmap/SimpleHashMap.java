@@ -47,15 +47,6 @@ import java.util.*;
  * an array, to prevent extra casting later in the code.
  *
  *
-
-
-
-
- Note that this implementation is not meant to be tuned for performance; it is only
- intended to show the operations performed by a hash map. If you look at the source
- code for java.util.HashMap, you’ll see a tuned implementation. Also, for simplicity
- SimpleHashMap uses the same approach to entrySet( ) as did SlowMap, which is oversimplified
- and will not work for a general-purpose Map.
  *
  */
 public class SimpleHashMap<K,V> extends AbstractMap<K,V> {
@@ -84,6 +75,7 @@ public class SimpleHashMap<K,V> extends AbstractMap<K,V> {
     public V put(K key, V value) {
         V oldValue = null;
         int index = Math.abs(key.hashCode()) % SIZE;
+        System.out.println("Calling put(): Index of " + key + " = " + index);
 
         // If that location is null, it means there are no elements that hash to that
         // location, so a new LinkedList is created to hold the object that just did hash
@@ -105,6 +97,7 @@ public class SimpleHashMap<K,V> extends AbstractMap<K,V> {
             if(iPair.getKey().equals(key)) {
                 oldValue = iPair.getValue();
                 it.set(pair); // Replace old with new
+                System.out.println("Found old = " + oldValue + "replaced with new" + value);
                 found = true;
                 break;
             }
@@ -112,8 +105,10 @@ public class SimpleHashMap<K,V> extends AbstractMap<K,V> {
 
         // The found flag keeps track of whether an old key-value pair
         // was found and, if not, the new pair is appended to the end of the list.
-        if(!found)
+        if(!found) {
+            System.out.println("Not found old and add new pair: " + pair);
             buckets[index].add(pair);
+        }
         return oldValue;
     }
 
@@ -126,18 +121,32 @@ public class SimpleHashMap<K,V> extends AbstractMap<K,V> {
     public V get(Object key) {
         // First get the hash index
         int index = Math.abs(key.hashCode()) % SIZE;
+        System.out.println("Calling get(): Index of " + key + " = " + index);
+
         // If the hash bucket of such index is empty, return null
         if(buckets[index] == null) return null;
 
         // Traverse the bucket of such index and get the value if the key is found.
         for(MapEntry<K,V> iPair : buckets[index])
-            if(iPair.getKey().equals(key))
+            if(iPair.getKey().equals(key)) {
+                System.out.println("Found pair: " + iPair);
                 return iPair.getValue();
+            }
 
         // Default return null
         return null;
     }
 
+
+    /**
+     *
+     * Note that this implementation is not meant to be tuned for performance; it is only
+     * intended to show the operations performed by a hash map. If you look at the source
+     * code for java.util.HashMap, you’ll see a tuned implementation. Also, for simplicity
+     * SimpleHashMap uses the same approach to entrySet( ) as did SlowMap, which is oversimplified
+     * and will not work for a general-purpose Map.
+     * *
+     * */
     public Set<Map.Entry<K,V>> entrySet() {
         Set<Map.Entry<K,V>> set= new HashSet<>();
         for(LinkedList<MapEntry<K,V>> bucket : buckets) {
@@ -152,6 +161,16 @@ public class SimpleHashMap<K,V> extends AbstractMap<K,V> {
         SimpleHashMap<String,String> m =
                 new SimpleHashMap<>();
         m.putAll(Countries.capitals(25));
+        /*
+        This is putAll in AbstractMap: Will get keys and values by calling entrySet()
+        and call put() to put in each of the entry:
+
+        public void putAll(Map<? extends K, ? extends V> m) {
+            for (Map.Entry<? extends K, ? extends V> e : m.entrySet())
+            put(e.getKey(), e.getValue());
+        }
+        * */
+
         System.out.println(m);
         System.out.println(m.get("ERITREA"));
         System.out.println(m.entrySet());
