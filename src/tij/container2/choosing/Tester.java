@@ -6,15 +6,39 @@ import java.util.*;
  *
  * Thinking in Java p619-620
  *
- * To use the framework, you pass the container to be tested along with a List of Test objects to a Tester.run( ) method (these are overloaded generic convenience methods which reduce the amount of typing necessary to use them). Tester.run( ) calls the appropriate overloaded constructor, then calls timedTest( ), which executes each test in the list for that container. timedTest( ) repeats each test for each of the TestParam objects in paramList. Because paramList is initialized from the static defaultParams array, you can change the paramList for all tests by reassigning defaultParams, or you can change the paramList for one test by passing in a custom paramList for that test:
+ * To use the framework, you pass the container to be tested along with
+ * a List of Test objects to a Tester.run( ) method (these are overloaded
+ * generic convenience methods which reduce the amount of typing necessary
+ * to use them). Tester.run( ) calls the appropriate overloaded constructor,
+ * then calls timedTest( ), which executes each test in the list for that
+ * container. timedTest( ) repeats each test for each of the TestParam objects
+ * in paramList. Because paramList is initialized from the static defaultParams
+ * array, you can change the paramList for all tests by reassigning defaultParams,
+ * or you can change the paramList for one test by passing in a custom paramList
+ * for that test:
  *
  *
- * The stringField( ) and numberField( ) methods produce formatting strings for outputting the results. The standard width for formatting can be changed by modifying the static fieldWidth value. The displayHeader( ) method formats and prints the header information for each test.
+ * The stringField( ) and numberField( ) methods produce formatting strings
+ * for outputting the results. The standard width for formatting can be changed
+ * by modifying the static fieldWidth value. The displayHeader( ) method formats
+ * and prints the header information for each test.
  *
  *
- If you need to perform special initialization, override the initialize( ) method. This produces an initialized container object of the appropriate size—you can either modify the existing container object or create a new one. You can see in test( ) that the result is captured in a local reference called kontainer, which allows you to replace the stored member container with a completely different initialized container.
- The return value of each Test.test( ) method must be the number of operations performed by that test, which is used to calculate the number of nanoseconds required for each operation. You should be aware that System.nanoTime( ) typically produces values with a granularity that is greater than one (and this granularity will vary with machines and operating systems), and this will produce a certain amount of rattle in the results.
- The results may vary from machine to machine; these tests are only intended to compare the performance of the different containers.
+ * If you need to perform special initialization, override the initialize( ) method.
+ * This produces an initialized container object of the appropriate size—you can either
+ * modify the existing container object or create a new one. You can see in test( )
+ * that the result is captured in a local reference called kontainer, which allows
+ * you to replace the stored member container with a completely different initialized container.
+ *
+ * The return value of each Test.test( ) method must be the number of operations
+ * performed by that test, which is used to calculate the number of nanoseconds
+ * required for each operation. You should be aware that System.nanoTime( ) typically
+ * produces values with a granularity that is greater than one (and this granularity
+ * will vary with machines and operating systems), and this will produce a certain
+ * amount of rattle in the results.
+ *
+ * The results may vary from machine to machine; these tests are only intended to
+ * compare the performance of the different containers.
  *
  *
  */
