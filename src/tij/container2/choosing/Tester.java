@@ -17,12 +17,10 @@ import java.util.*;
  * or you can change the paramList for one test by passing in a custom paramList
  * for that test:
  *
- *
  * The stringField( ) and numberField( ) methods produce formatting strings
  * for outputting the results. The standard width for formatting can be changed
  * by modifying the static fieldWidth value. The displayHeader( ) method formats
  * and prints the header information for each test.
- *
  *
  * If you need to perform special initialization, override the initialize( ) method.
  * This produces an initialized container object of the appropriate size—you can either

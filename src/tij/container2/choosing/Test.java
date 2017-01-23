@@ -2,7 +2,7 @@ package tij.container2.choosing;
 
 /**
  * Created by Xiaolong on 1/21/2017.
- * <p>
+ *
  * Thinking in Java p618
  *
  * Framework for performing timed tests of containers.
